@@ -1,9 +1,9 @@
-import HomePage from "./hompage.component";
+import CategoryDir from "./components/category-directory/category-dir.component";
 
 function App() {
   return (
     <div>
-      <HomePage />
+      <CategoryDir />
     </div>
   );
 }
