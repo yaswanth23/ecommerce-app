@@ -11,8 +11,8 @@ import { store } from "./store/store";
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Provider store={store}>
+    <Provider store={store}>
+      <BrowserRouter>
         <UserProvider>
           <CategoriesProvider>
             <CartProvider>
@@ -20,8 +20,8 @@ ReactDOM.render(
             </CartProvider>
           </CategoriesProvider>
         </UserProvider>
-      </Provider>
-    </BrowserRouter>
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );
