@@ -1,7 +1,6 @@
-import { createContext, useState, useEffect } from "react";
-//import SHOP_DATA from "../shop-data.js";
-//import { addCollectionAndDocuments } from "../utils/firebase/firbase.utils.jsx";
-import { getCategoriesAndDocuments } from "../utils/firebase/firbase.utils.jsx";
+import { createContext, useState, useEffect } from 'react';
+
+import { getCategoriesAndDocuments } from '../utils/firebase/firebase.utils';
 
 export const CategoriesContext = createContext({
   categoriesMap: {},
@@ -11,17 +10,13 @@ export const CategoriesProvider = ({ children }) => {
   const [categoriesMap, setCategoriesMap] = useState({});
 
   useEffect(() => {
-    const getCategories = async () => {
-      const categoryMap = await getCategoriesAndDocuments();
+    const getCategoriesMap = async () => {
+      const categoryMap = await getCategoriesAndDocuments('categories');
       setCategoriesMap(categoryMap);
     };
-    getCategories();
-  }, []);
 
-  // adding data to db from front end just for once
-  // useEffect(() => {
-  //   addCollectionAndDocuments("categories", SHOP_DATA);
-  // }, []);
+    getCategoriesMap();
+  }, []);
 
   const value = { categoriesMap };
   return (
